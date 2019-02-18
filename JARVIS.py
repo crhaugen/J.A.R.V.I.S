@@ -2,8 +2,8 @@ import discord
 import pyowm
 
 #REMOVE/ADD keys as need!!!
-TOKEN = 'NTQ1NzM1OTMxNjg5MTczMDA0.D0iwnQ.njSodPVOj_Ah49czOJeF87x0jiI'
-owm = pyowm.OWM('b328f479c725976b77d42cbc59f09391') 
+TOKEN = 'insert discord key'
+owm = pyowm.OWM('insert owm key') 
 
 client = discord.Client()
 
