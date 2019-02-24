@@ -2,8 +2,8 @@ import discord
 import pyowm
 
 #REMOVE/ADD keys as need!!!
-TOKEN = 'NTQ1NzM1OTMxNjg5MTczMDA0.D0iwnQ.njSodPVOj_Ah49czOJeF87x0jiI'
-owm = pyowm.OWM('b328f479c725976b77d42cbc59f09391') 
+TOKEN = '####'
+owm = pyowm.OWM('####') 
 
 client = discord.Client()
 
@@ -15,11 +15,16 @@ async def on_message(message):
 
     if message.content.startswith('!hello'):
         msg = hello(message)
-        await client.send_message(message.channel, msg) 
+        await client.send_message(message.channel, msg)
     
     elif message.content.startswith('!temp'):
-        msg = temperature() 
+        msg = weather() 
         await client.send_message(message.channel, 'Current Temperature: {} F'.format(msg.get_temperature('fahrenheit')['temp']))
+
+    elif message.content.startswith('!weather'):
+        msg = weather()
+        await client.send_message(message.channel, 'Weather Status: {}'.format(msg.get_detailed_status()))
+
 
 
 @client.event
@@ -40,7 +45,7 @@ def hello(message):
 
     return msg
 
-def temperature():
+def weather():
     observation = owm.weather_at_coords(48.082778, -121.969722)
     w = observation.get_weather()
     return w 
