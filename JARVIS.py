@@ -2,6 +2,7 @@ import discord
 import pyowm
 
 #REMOVE/ADD keys as need!!!
+##**************
 TOKEN = '####'
 owm = pyowm.OWM('####') 
 
@@ -39,7 +40,7 @@ def hello(message):
     msg = 'Hello {0.author.mention}'.format(message)
     print(message.author.id)
 
-    if message.author.id == '445619407520268298':
+    if message.author.id == 'PUT IN YOUR ID':
         print(message.author.id)
         msg = 'Hello Master {0.author.mention}'.format(message)
 
