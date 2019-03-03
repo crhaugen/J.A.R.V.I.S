@@ -35,7 +35,7 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-
+#function to perform the tasks
 def hello(message):
     msg = 'Hello {0.author.mention}'.format(message)
     print(message.author.id)
