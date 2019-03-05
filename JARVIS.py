@@ -8,6 +8,7 @@ owm = pyowm.OWM('####')
 
 client = discord.Client()
 
+#switch 
 @client.event
 async def on_message(message):
     # we do not want the bot to reply to itself
