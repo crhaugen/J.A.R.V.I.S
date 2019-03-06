@@ -52,5 +52,5 @@ def weather():
     w = observation.get_weather()
     return w 
 
-
+#starts the bot
 client.run(TOKEN)
