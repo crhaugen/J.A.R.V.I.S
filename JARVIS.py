@@ -47,6 +47,7 @@ def hello(message):
 
     return msg
 
+#weather function
 def weather():
     observation = owm.weather_at_coords(48.082778, -121.969722)
     w = observation.get_weather()
