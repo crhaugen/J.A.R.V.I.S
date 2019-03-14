@@ -6,6 +6,7 @@ import pyowm
 TOKEN = '####'
 owm = pyowm.OWM('####') 
 
+#creating a discord client from discord import
 client = discord.Client()
 
 #switch 
