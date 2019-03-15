@@ -9,7 +9,7 @@ owm = pyowm.OWM('####')
 #creating a discord client from discord import
 client = discord.Client()
 
-#switch 
+#switch for bot operations
 @client.event
 async def on_message(message):
     # we do not want the bot to reply to itself
