@@ -30,7 +30,7 @@ async def on_message(message):
         await client.send_message(message.channel, 'Weather Status: {}'.format(msg.get_detailed_status()))
 
 
-#this is bot information
+#this is bot information printing ton console
 @client.event
 async def on_ready():
     print('Logged in as')
