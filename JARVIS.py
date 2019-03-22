@@ -51,7 +51,7 @@ def hello(message):
 
 #weather function
 def weather():
-    observation = owm.weather_at_coords(48.082778, -121.969722)
+    observation = owm.weather_at_coords(48.082778, -121.969722)//change coor for different places
     w = observation.get_weather()
     return w 
 
