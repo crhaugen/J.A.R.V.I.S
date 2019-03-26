@@ -24,9 +24,13 @@ async def on_message(message):
     elif message.content.startswith('!weather'):
         msg = weather()
         await client.send_message(message.channel, 'Weather Status: {}'.format(msg.get_detailed_status()))
+    
+    elif  message.content.startswith('!clap'):
+        msg = clap(message)
+        await client.send_message(message.channel, msg)
 
 
-
+  
 @client.event
 async def on_ready():
     print('Logged in as')
@@ -49,6 +53,18 @@ def weather():
     observation = owm.weather_at_coords(48.082778, -121.969722)
     w = observation.get_weather()
     return w 
+
+def clap(message):
+    msg = message.content
+
+    wordList = msg.split(" ") 
+
+    msg = msg.split(' ', 2)[2]
+
+    newMsg = msg.replace(" ", ' ' + wordList[1] + ' ')
+
+    return newMsg
+
 
 
 client.run(TOKEN)
