@@ -34,11 +34,8 @@ async def on_message(message):
         await client.send_message(message.channel, msg)
 
 
-<<<<<<< HEAD
-  
-=======
 #this is bot information printing to console
->>>>>>> de8c5e8b8b7266116a1b37297bb109b5690b05d3
+
 @client.event
 async def on_ready():
     print('Logged in as')
@@ -63,7 +60,6 @@ def weather():
     w = observation.get_weather()
     return w 
 
-<<<<<<< HEAD
 def clap(message):
     msg = message.content
 
@@ -77,7 +73,4 @@ def clap(message):
 
 
 
-=======
-#starts the bot
->>>>>>> de8c5e8b8b7266116a1b37297bb109b5690b05d3
 client.run(TOKEN)
