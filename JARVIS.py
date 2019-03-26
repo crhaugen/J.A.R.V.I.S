@@ -2,17 +2,21 @@ import discord
 import pyowm
 
 #REMOVE/ADD keys as need!!!
+##**************
 TOKEN = '####'
 owm = pyowm.OWM('####') 
 
+#creating a discord client from discord import
 client = discord.Client()
 
+#switch for different bot operations
 @client.event
 async def on_message(message):
     # we do not want the bot to reply to itself
     if message.author == client.user:
         return
 
+    #possible commands 
     if message.content.startswith('!hello'):
         msg = hello(message)
         await client.send_message(message.channel, msg)
@@ -30,7 +34,11 @@ async def on_message(message):
         await client.send_message(message.channel, msg)
 
 
+<<<<<<< HEAD
   
+=======
+#this is bot information printing to console
+>>>>>>> de8c5e8b8b7266116a1b37297bb109b5690b05d3
 @client.event
 async def on_ready():
     print('Logged in as')
@@ -38,22 +46,24 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-
+#function to perform the tasks
 def hello(message):
     msg = 'Hello {0.author.mention}'.format(message)
     print(message.author.id)
 
-    if message.author.id == '445619407520268298':
+    if message.author.id == 'PUT IN YOUR ID':
         print(message.author.id)
         msg = 'Hello Master {0.author.mention}'.format(message)
 
     return msg
 
+#weather function
 def weather():
-    observation = owm.weather_at_coords(48.082778, -121.969722)
+    observation = owm.weather_at_coords(48.082778, -121.969722)//change coor for different places
     w = observation.get_weather()
     return w 
 
+<<<<<<< HEAD
 def clap(message):
     msg = message.content
 
@@ -67,4 +77,7 @@ def clap(message):
 
 
 
+=======
+#starts the bot
+>>>>>>> de8c5e8b8b7266116a1b37297bb109b5690b05d3
 client.run(TOKEN)
