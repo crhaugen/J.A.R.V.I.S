@@ -9,14 +9,12 @@ owm = pyowm.OWM('####')
 #creating a discord client from discord import
 client = discord.Client()
 
-#switch for different bot operations
 @client.event
 async def on_message(message):
     # we do not want the bot to reply to itself
     if message.author == client.user:
         return
 
-    #possible commands 
     if message.content.startswith('!hello'):
         msg = hello(message)
         await client.send_message(message.channel, msg)
@@ -33,30 +31,32 @@ async def on_message(message):
         msg = clap(message)
         await client.send_message(message.channel, msg)
 
+    elif message.content.startswith('!upsidedown'):
+        msg = upsidedownWords(message)
+        await client.send_message(message.channel, msg)
 
-#this is bot information printing to console
 
-@client.event
+  
+@client.event    
 async def on_ready():
     print('Logged in as')
     print(client.user.name)
     print(client.user.id)
     print('------')
 
-#function to perform the tasks
+
 def hello(message):
     msg = 'Hello {0.author.mention}'.format(message)
     print(message.author.id)
 
-    if message.author.id == 'PUT IN YOUR ID':
+    if message.author.id == '445619407520268298':
         print(message.author.id)
         msg = 'Hello Master {0.author.mention}'.format(message)
 
     return msg
 
-#weather function
 def weather():
-    observation = owm.weather_at_coords(48.082778, -121.969722)//change coor for different places
+    observation = owm.weather_at_coords(48.082778, -121.969722)
     w = observation.get_weather()
     return w 
 
@@ -71,6 +71,17 @@ def clap(message):
 
     return newMsg
 
+def upsidedownWords(message):
+    msg = message.content
+    
+    wordList = msg.split(" ")
 
+    msg = msg.split(' ', 1)[1]
+
+    newMsg = upsidedown.transform(msg)
+
+    return newMsg
+
+client.run(TOKEN)
 
 client.run(TOKEN)
