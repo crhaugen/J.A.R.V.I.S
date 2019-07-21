@@ -5,6 +5,7 @@ import pyowm
 ##**************
 TOKEN = '####'
 owm = pyowm.OWM('####') 
+reddit = praw.Reddit('####')
 
 #creating a discord client from discord import
 client = discord.Client()
@@ -33,6 +34,10 @@ async def on_message(message):
 
     elif message.content.startswith('!upsidedown'):
         msg = upsidedownWords(message)
+        await client.send_message(message.channel, msg)
+   
+    elif message.content.startswith('!reddit'):
+        msg = redditPosts(message)
         await client.send_message(message.channel, msg)
 
 
@@ -71,7 +76,6 @@ def clap(message):
 
     return newMsg
 
-#returns given word 'upsidedown'
 def upsidedownWords(message):
     msg = message.content
     
@@ -82,6 +86,30 @@ def upsidedownWords(message):
     newMsg = upsidedown.transform(msg)
 
     return newMsg
+
+def redditPosts(message):
+    msg = message.content
+
+    wordList = msg.split(" ")
+
+    subType = wordList[1]
+
+    subs = reddit.subreddit(subType).hot(limit=5)
+
+    subs = [sub for sub in subs if not sub.domain.startswith('self.')]
+
+    mes = 'Fetching posts from front page of ' + subType + ':\n\n'
+
+    for sub in subs:
+        res = requests.get(sub.url)
+        if(res.status_code == 200 and 'content-type' in res.headers and res.headers.get('content-type').startswith('text/html')):
+
+            mes +='Title: ' + sub.title + '\n'
+            mes += 'Link: ' + sub.url + '\n\n'
+
+    return mes
+
+
 
 client.run(TOKEN)
 
