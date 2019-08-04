@@ -86,7 +86,7 @@ def upsidedownWords(message):
     newMsg = upsidedown.transform(msg)
 
     return newMsg
-
+#scraps posts off reddit
 def redditPosts(message):
     msg = message.content
 
