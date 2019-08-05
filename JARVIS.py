@@ -76,6 +76,7 @@ def clap(message):
 
     return newMsg
 
+#prints string upside down
 def upsidedownWords(message):
     msg = message.content
     
