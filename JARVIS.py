@@ -59,7 +59,7 @@ def hello(message):
         msg = 'Hello Master {0.author.mention}'.format(message)
 
     return msg
-
+#display weather information
 def weather():
     observation = owm.weather_at_coords(48.082778, -121.969722)
     w = observation.get_weather()
