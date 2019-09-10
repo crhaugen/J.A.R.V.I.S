@@ -1,13 +1,23 @@
 import discord
 import pyowm
+import upsidedown
+import praw
+import requests
+import os
+from dotenv import load_dotenv
 
-#REMOVE/ADD keys as need!!!
-##**************
-TOKEN = '####'
-owm = pyowm.OWM('####') 
-reddit = praw.Reddit('####')
+load_dotenv()
 
-#creating a discord client from discord import
+token = os.getenv('DISCORD_TOKEN')
+
+
+owm = pyowm.OWM(os.getenv('PYOWM_TOKEN'))
+
+reddit = praw.Reddit(client_id=os.getenv('CLIENT_ID'),
+                      client_secret=os.getenv('CLIENT_SECRET'),
+                      grant_type='client_credentials',
+                      user_agent='mytestscript/1.0')
+
 client = discord.Client()
 
 @client.event
@@ -15,11 +25,11 @@ async def on_message(message):
     # we do not want the bot to reply to itself
     if message.author == client.user:
         return
-    #options that jarvis will repond to 
+
     if message.content.startswith('!hello'):
         msg = hello(message)
         await client.send_message(message.channel, msg)
-    
+
     elif message.content.startswith('!temp'):
         msg = weather() 
         await client.send_message(message.channel, 'Current Temperature: {} F'.format(msg.get_temperature('fahrenheit')['temp']))
@@ -27,7 +37,7 @@ async def on_message(message):
     elif message.content.startswith('!weather'):
         msg = weather()
         await client.send_message(message.channel, 'Weather Status: {}'.format(msg.get_detailed_status()))
-    
+
     elif  message.content.startswith('!clap'):
         msg = clap(message)
         await client.send_message(message.channel, msg)
@@ -35,14 +45,14 @@ async def on_message(message):
     elif message.content.startswith('!upsidedown'):
         msg = upsidedownWords(message)
         await client.send_message(message.channel, msg)
-   
+
     elif message.content.startswith('!reddit'):
         msg = redditPosts(message)
         await client.send_message(message.channel, msg)
 
 
-  
-@client.event    
+
+@client.event
 async def on_ready():
     print('Logged in as')
     print(client.user.name)
@@ -59,16 +69,16 @@ def hello(message):
         msg = 'Hello Master {0.author.mention}'.format(message)
 
     return msg
-#display weather information
+
 def weather():
     observation = owm.weather_at_coords(48.082778, -121.969722)
     w = observation.get_weather()
-    return w 
-#prints string with emoijs inbetween
+    return w
+
 def clap(message):
     msg = message.content
 
-    wordList = msg.split(" ") 
+    wordList = msg.split(" ")
 
     msg = msg.split(' ', 2)[2]
 
@@ -76,10 +86,9 @@ def clap(message):
 
     return newMsg
 
-#prints string upside down
 def upsidedownWords(message):
     msg = message.content
-    
+
     wordList = msg.split(" ")
 
     msg = msg.split(' ', 1)[1]
@@ -87,7 +96,7 @@ def upsidedownWords(message):
     newMsg = upsidedown.transform(msg)
 
     return newMsg
-#scraps posts off reddit
+
 def redditPosts(message):
     msg = message.content
 
@@ -112,6 +121,4 @@ def redditPosts(message):
 
 
 
-client.run(TOKEN)
-
-client.run(TOKEN)
+client.run(token)
