@@ -55,4 +55,13 @@ async def temp(context):
     msg = 'Current Temperature: {} F'.format(getWeatherData().get_temperature('fahrenheit')['temp'])
     await context.send(msg)
 
+@bot.command(name="clap", help="Inserts some value into give string.")
+async def clap(context):
+    msg = context.message.content
+    wordList = msg.split(" ")
+    msg = msg.split(' ', 2)[2]
+    newMsg = msg.replace(" ", ' ' + wordList[1] + ' ')
+
+    await context.send(newMsg)
+
 bot.run(token)
