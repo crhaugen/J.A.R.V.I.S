@@ -71,4 +71,25 @@ async def upsidedownWords(context):
     newMsg = upsidedown.transform(msg)
 
     await context.send(newMsg)
+
+@bot.command(name="reddit", help="gets top posts from given subreddit")
+async def redditPosts(context):
+    msg = context.message.content
+    wordList = msg.split(" ")
+    subType = wordList[1]
+
+    subs = reddit.subreddit(subType).hot(limit=5)
+    subs = [sub for sub in subs if not sub.domain.startswith('self.')]
+
+    mes = 'Fetching posts from front page of ' + subType + ':\n\n'
+
+    for sub in subs:
+        res = requests.get(sub.url)
+        if(res.status_code == 200 and 'content-type' in res.headers and res.headers.get('content-type').startswith('test/html')):
+            mes += 'Title: ' + sub.title + '\n'
+            mes += 'Link: ' + sub.url + '\n\n'
+            print('getting links' + sub.title)
+
+    print(mes)
+    await context.send(mes) 
 bot.run(token)
