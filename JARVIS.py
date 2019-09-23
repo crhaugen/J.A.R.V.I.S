@@ -85,11 +85,12 @@ async def redditPosts(context):
 
     for sub in subs:
         res = requests.get(sub.url)
-        if(res.status_code == 200 and 'content-type' in res.headers and res.headers.get('content-type').startswith('test/html')):
+        print(res.status_code)
+        if(res.status_code == 200 and 'content-type' in res.headers and res.headers.get('content-type').startswith('text/html')):
             mes += 'Title: ' + sub.title + '\n'
             mes += 'Link: ' + sub.url + '\n\n'
             print('getting links' + sub.title)
 
     print(mes)
-    await context.send(mes) 
+    await context.send(mes)
 bot.run(token)
