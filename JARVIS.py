@@ -2,8 +2,11 @@ import discord
 import pyowm
 import upsidedown
 import praw
+
 import requests
 import os
+import json
+import random
 
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -28,6 +31,18 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+
+@bot.event
+async def on_message(message):
+
+    if 'jarvis' in message.content.lower():
+
+        with open('quotes.json', 'r') as quotes:
+            jarvisQuotes = json.load(quotes)
+
+        await message.channel.send(random.choice(jarvisQuotes))
+
+    await bot.process_commands(message)
 
 @bot.command(name='hello', help='Jarvis says hello.')
 async def hello(context):
