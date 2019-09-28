@@ -3,6 +3,7 @@ import pyowm
 import upsidedown
 import praw
 
+import asyncio
 import requests
 import os
 import json
@@ -43,6 +44,18 @@ async def on_message(message):
         await message.channel.send(random.choice(jarvisQuotes))
 
     await bot.process_commands(message)
+
+async def my_background_task():
+    await bot.wait_until_ready()
+    count = 0
+    channel = bot.get_channel(602607175340130304)
+
+    print('this is in here')
+    while not bot.is_closed():
+        print('bot is not closed')
+        count += 1
+        await channel.send(count)
+        await asyncio.sleep(60)
 
 @bot.command(name='hello', help='Jarvis says hello.')
 async def hello(context):
@@ -108,4 +121,6 @@ async def redditPosts(context):
 
     print(mes)
     await context.send(mes)
+
+bot.loop.create_task(my_background_task())
 bot.run(token)
