@@ -52,9 +52,38 @@ async def my_background_task():
 
     print('this is in here')
     while not bot.is_closed():
-        print('bot is not closed')
-        count += 1
-        await channel.send(count)
+        print(r"""
+	      .-----.
+	    .' -   - '.
+	   /  .-. .-.  \    Y O U  H A V E
+	   |  | | | |  |    B E E N  S P O O K E D
+	    \ \o/ \o/ /
+	   _/    ^    \_
+	  | \  '---'  / |
+	  / /'--. .--'\ \
+	 / /'---' '---'\ \
+	 '.__.       .__.'
+	     '|     |'
+	      |     \
+	      \      '--.
+	       '.        '\
+	         '---.   |
+	            ,__) /
+        """)
+
+        await channel.send('```' + r"""
+		 .             *        .     .       .
+		       .     _     .     .            .       .
+		.    .   _  / |      .        .  *         _  .     .
+		        | \_| |                           | | __
+		      _ |     |                   _       | |/  |
+		     | \      |      ____        | |     /  |    \
+		     |  |     \    +/_\/_\+      | |    /   |     \
+		   _/____\--...\___ \_||_/ ___...|__\-..|____\____/__
+		      .     .      |_|__|_|         .       .
+		   .    . .       _/ /__\ \_ .          .
+		      .       .    .           .         .
+       """ + '```')
         await asyncio.sleep(60)
 
 @bot.command(name='hello', help='Jarvis says hello.')
