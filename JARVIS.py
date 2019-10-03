@@ -47,30 +47,9 @@ async def on_message(message):
 
 async def my_background_task():
     await bot.wait_until_ready()
-    count = 0
     channel = bot.get_channel(602607175340130304)
 
-    print('this is in here')
     while not bot.is_closed():
-        print(r"""
-	      .-----.
-	    .' -   - '.
-	   /  .-. .-.  \    Y O U  H A V E
-	   |  | | | |  |    B E E N  S P O O K E D
-	    \ \o/ \o/ /
-	   _/    ^    \_
-	  | \  '---'  / |
-	  / /'--. .--'\ \
-	 / /'---' '---'\ \
-	 '.__.       .__.'
-	     '|     |'
-	      |     \
-	      \      '--.
-	       '.        '\
-	         '---.   |
-	            ,__) /
-        """)
-
         await channel.send('```' + spooky_ascii_art() + '```')
         await asyncio.sleep(60)
 
