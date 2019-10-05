@@ -48,32 +48,12 @@ async def on_message(message):
 
 async def my_background_task():
     await bot.wait_until_ready()
-    channel = bot.get_channel(602607175340130304)
-
+    channel = bot.get_channel(602605656704417999)
+    waitTime = random.randint(1, 10000)
     while not bot.is_closed():
-<<<<<<< HEAD
-        print(r"""
-	      .-----.
-	    .' -   - '.
-	   /  .-. .-.  \    Y O U  H A V E
-	   |  | | | |  |    B E E N  S P O O K E D
-	    \ \o/ \o/ /
-	   _/    ^    \_
-	  | \  '---'  / |
-	  / /'--. .--'\ \
-	 / /'---' '---'\ \
-	 '.__.       .__.'
-	     '|     |'
-	      |     \
-	      \      '--.
-	       '.        '\
-	         '---.   |
-	            ,__) /
-        """)
-=======
->>>>>>> 477195220b4dfd89c3d217ec6e8e97177851503c
+
         await channel.send('```' + spooky_ascii_art() + '```')
-        await asyncio.sleep(60)
+        await asyncio.sleep(86400 + waitTime)
 
 @bot.command(name='hello', help='Jarvis says hello.')
 async def hello(context):
