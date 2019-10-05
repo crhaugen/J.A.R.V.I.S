@@ -48,11 +48,10 @@ async def on_message(message):
 
 async def my_background_task():
     await bot.wait_until_ready()
-    count = 0
     channel = bot.get_channel(602607175340130304)
 
-    print('this is in here')
     while not bot.is_closed():
+<<<<<<< HEAD
         print(r"""
 	      .-----.
 	    .' -   - '.
@@ -71,6 +70,8 @@ async def my_background_task():
 	         '---.   |
 	            ,__) /
         """)
+=======
+>>>>>>> 477195220b4dfd89c3d217ec6e8e97177851503c
         await channel.send('```' + spooky_ascii_art() + '```')
         await asyncio.sleep(60)
 
