@@ -12,6 +12,7 @@ import random
 from discord.ext import commands
 from dotenv import load_dotenv
 from spookyASCII import spooky_ascii_art
+
 load_dotenv()
 
 token = os.getenv('DISCORD_TOKEN')
@@ -70,7 +71,6 @@ async def my_background_task():
 	         '---.   |
 	            ,__) /
         """)
-
         await channel.send('```' + spooky_ascii_art() + '```')
         await asyncio.sleep(60)
 
