@@ -1,7 +1,7 @@
 # J.A.R.V.I.S
 JARVIS is a discord bot written in python with the discord.py library.
 
-JARVIS performs a number of useful utilities to users.
+JARVIS performs a number of useful utilities for users.
 
 ## Some utilities JARVIS has (more to come):
   
@@ -11,11 +11,11 @@ JARVIS performs a number of useful utilities to users.
   
   * Getting top posts on reddit, given a subreddit name
 
-  * Clap back
+  * Clap back:
   JARVIS will repete a users message with an emoji (chosen by user) between each word.
   
-  * Upside-down
+  * Upside-down:
   JARVIS will turn users message upside-down
   
-  * Talking Jarvis
+  * Talking Jarvis:
   JARVIS will reponse with a ransom sentence when a user calls his name.
