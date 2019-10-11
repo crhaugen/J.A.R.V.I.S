@@ -51,7 +51,7 @@ async def my_background_task():
     channel = bot.get_channel(602605656704417999)
     waitTime = random.randint(1, 10000)
     while not bot.is_closed():
-
+        #print('```' + spooky_ascii_art() + '```')
         await channel.send('```' + spooky_ascii_art() + '```')
         await asyncio.sleep(86400 + waitTime)
 
@@ -98,7 +98,7 @@ async def upsidedownWords(context):
 
     await context.send(newMsg)
 
-@bot.command(name="reddit", help="gets top posts from given subreddit")
+@bot.command(name="reddit", help="gets top posts from given subreddit, !reddit <subReddit>")
 async def redditPosts(context):
     msg = context.message.content
     wordList = msg.split(" ")
