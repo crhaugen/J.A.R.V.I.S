@@ -45,7 +45,7 @@ async def on_message(message):
         await message.channel.send(random.choice(jarvisQuotes))
 
     await bot.process_commands(message)
-
+ 
 async def my_background_task():
     await bot.wait_until_ready()
     channel = bot.get_channel(602605656704417999)
@@ -117,8 +117,15 @@ async def redditPosts(context):
             mes += 'Link: ' + sub.url + '\n\n'
             print('getting links' + sub.title)
 
-    print(mes)
     await context.send(mes)
+
+@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
+async def spookyJoke(context):
+
+    with open('spookyJokes.json', 'r') as joke:
+        listOfJokes = json.load(joke)
+
+    await context.send(random.choice(listOfJokes))
 
 bot.loop.create_task(my_background_task())
 bot.run(token)
