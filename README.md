@@ -21,4 +21,4 @@ JARVIS performs a number of useful utilities for users.
   JARVIS will reponse with a ransom sentence when a user calls his name.
   
 ## Coming Soon:
- * xmascountdown
+ * xmas countdown
