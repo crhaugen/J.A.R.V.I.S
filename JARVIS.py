@@ -49,7 +49,7 @@ async def on_message(message):
         await message.channel.send(random.choice(jarvisQuotes))
 
     await bot.process_commands(message)
-#jar
+#jar hh
 #async def my_background_task():
    # await bot.wait_until_ready()
     #channel = bot.get_channel(602605656704417999)
