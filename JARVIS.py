@@ -8,6 +8,10 @@ import requests
 import os
 import json
 import random
+import time
+import datetime
+import math
+
 
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -45,15 +49,15 @@ async def on_message(message):
         await message.channel.send(random.choice(jarvisQuotes))
 
     await bot.process_commands(message)
- 
-async def my_background_task():
-    await bot.wait_until_ready()
-    channel = bot.get_channel(602605656704417999)
-    waitTime = random.randint(1, 10000)
-    while not bot.is_closed():
+
+#async def my_background_task():
+   # await bot.wait_until_ready()
+    #channel = bot.get_channel(602605656704417999)
+    #waitTime = random.randint(1, 10000)
+    #while not bot.is_closed():
         #print('```' + spooky_ascii_art() + '```')
-        await channel.send('```' + spooky_ascii_art() + '```')
-        await asyncio.sleep(86400 + waitTime)
+     #   await channel.send('```' + spooky_ascii_art() + '```')
+      #  await asyncio.sleep(86400 + waitTime)
 
 @bot.command(name='hello', help='Jarvis says hello.')
 async def hello(context):
@@ -119,13 +123,35 @@ async def redditPosts(context):
 
     await context.send(mes)
 
-@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
-async def spookyJoke(context):
+#@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
+#async def spookyJoke(context):
 
-    with open('spookyJokes.json', 'r') as joke:
-        listOfJokes = json.load(joke)
+ #   with open('spookyJokes.json', 'r') as joke:
+ #       listOfJokes = json.load(joke)
 
-    await context.send(random.choice(listOfJokes))
+   # await context.send(random.choice(listOfJokes))
 
-bot.loop.create_task(my_background_task())
+#bot.loop.create_task(my_background_task())
+
+@bot.command(name="daystillxmas", help="days till xmas 2019")
+async def daystillxmas(context):
+    christmas = datetime.datetime.strptime("12/25/2020", "%m/%d/%Y")
+    now = datetime.datetime.now()
+    diff = christmas - now
+    days = diff.days
+    seconds = int(diff.seconds)
+    hours = int(math.floor(seconds / 3600))
+    minutes = int(math.floor((seconds - (hours * 3600)) / 60))
+
+    strHours = str(hours)
+    strMinutes = str(minutes)
+
+    if minutes < 10:
+        strMinutes = "0" + strMinutes
+    if hours < 10:
+        strHours = " " + strHours
+
+    output = "There are " + str(days) + " Days, " + strHours + " Hours, and " + strMinutes + " Minutes till xmas."
+    await context.send(output)
+
 bot.run(token)
