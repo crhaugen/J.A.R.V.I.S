@@ -98,7 +98,7 @@ async def upsidedownWords(context):
 
     await context.send(newMsg)
 
-@bot.command(name="reddit", help="gets top posts from given subreddit, !reddit <subReddit>")
+@bot.command(name="reddit", help="gets top posts from given subreddit: !reddit <subReddit>")
 async def redditPosts(context):
     msg = context.message.content
     wordList = msg.split(" ")
