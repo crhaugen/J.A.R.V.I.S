@@ -70,6 +70,19 @@ async def hello(context):
 
     await context.send(msg)
 
+@bot.command(name='remindeMe', help='')
+async def remindeMe(context):
+
+    msg = context.message.content
+    #remove the prompt word
+    msg = msg.split(' ', 1)[1]
+
+    msgInfo = msg.split('>')
+
+
+
+    await context.send(msg)
+
 #helper function to get weather info at coords
 def getWeatherData():
     observation = owm.weather_at_coords(48.082778, -121.969722)
@@ -133,7 +146,7 @@ async def redditPosts(context):
 
 #bot.loop.create_task(my_background_task())
 
-@bot.command(name="daystillxmas", help="days till xmas 2019")
+@bot.command(name="daystillxmas", help="days till xmas 2020")
 async def daystillxmas(context):
     christmas = datetime.datetime.strptime("12/25/2020", "%m/%d/%Y")
     now = datetime.datetime.now()
