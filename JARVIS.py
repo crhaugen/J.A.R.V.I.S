@@ -70,17 +70,46 @@ async def hello(context):
 
     await context.send(msg)
 
+# helper fuction for remindMe
+# https://stackoverflow.com/questions/100210/what-is-the-standard-way-to-add-n-seconds-to-datetime-time-in-python
+def addSecs(tm, secs):
+    fulldate = datetime.datetime(100, 1, 1, tm.hour, tm.minute, tm.second)
+    fulldate = fulldate + datetime.timedelta(seconds=secs)
+    return fulldate.time()
+
 @bot.command(name='remindeMe', help='')
 async def remindeMe(context):
 
     msg = context.message.content
+
     #remove the prompt word
     msg = msg.split(' ', 1)[1]
 
+    # seperate the time from the messsage
     msgInfo = msg.split('>')
 
+    # user's message
+    userReminder = msgInfo[0]
 
+    time = msgInfo[1]
 
+    # min or hr
+    unitOfTime = time.split(' ')[0]
+
+    # amount of time (int)
+    timeTillReminder = time.split(' ')[1]
+
+    secTillReminder = 0
+
+    if unitOfTime == 'hr':
+        secTillReminder = timeTillReminder * 3600
+    else:
+        secTillReminder = timeTillReminder * 60
+
+    timeToPrintReminder = addSecs(datetime.datetime.now().time(), secTillReminder)
+
+    print(timeToPrintReminder)
+    
     await context.send(msg)
 
 #helper function to get weather info at coords
