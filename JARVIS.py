@@ -72,10 +72,16 @@ async def hello(context):
 
 # helper fuction for remindMe
 # https://stackoverflow.com/questions/100210/what-is-the-standard-way-to-add-n-seconds-to-datetime-time-in-python
-def addSecs(tm, secs):
-    fulldate = datetime.datetime(100, 1, 1, tm.hour, tm.minute, tm.second)
+def addSecs(date, secs):
+
+    day = date.day
+    month = date.month
+    year = date.year
+    tm = date.time()
+
+    fulldate = datetime.datetime(year, month, day, tm.hour, tm.minute, tm.second)
     fulldate = fulldate + datetime.timedelta(seconds=secs)
-    return fulldate.time()
+    return fulldate
 
 @bot.command(name='remindeMe', help='')
 async def remindeMe(context):
@@ -102,14 +108,27 @@ async def remindeMe(context):
     secTillReminder = 0
 
     if unitOfTime == 'hr':
-        secTillReminder = timeTillReminder * 3600
+        print("hr")
+        secTillReminder = int(timeTillReminder) * 3600
     else:
-        secTillReminder = timeTillReminder * 60
+        secTillReminder = int(timeTillReminder) * 60
 
-    timeToPrintReminder = addSecs(datetime.datetime.now().time(), secTillReminder)
+    print(secTillReminder)
+
+
+    timeToPrintReminder = addSecs(datetime.datetime.now(), secTillReminder)
 
     print(timeToPrintReminder)
-    
+
+    print(timeToPrintReminder - datetime.datetime.now())
+
+    timeTillPrint = timeToPrintReminder - datetime.datetime.now()
+    seconds = timeTillPrint.seconds
+    hours = int(math.floor(seconds / 3600))
+    minutes = int(math.floor((seconds - (hours * 3600)) / 60))
+
+    print(minutes)
+
     await context.send(msg)
 
 #helper function to get weather info at coords
