@@ -127,6 +127,8 @@ async def remindeMe(context):
     hours = int(math.floor(seconds / 3600))
     minutes = int(math.floor((seconds - (hours * 3600)) / 60))
 
+    print(timeTillPrint.days)
+    print(hours)
     print(minutes)
 
     await context.send(msg)
