@@ -151,7 +151,7 @@ async def remindeMe(context):
     #print(hours)
     #print(minutes)
 
-    msg = "OK I will try to remind you to " + userReminder + " in about " + time + " " + unitOfTime + " give or take some time."
+    msg = "OK I will try to remind you to: " + userReminder + " in about " + time + " give or take some time."
 
     await context.send(msg)
 
