@@ -118,8 +118,11 @@ async def remindeMe(context):
 
     timeToPrintReminder = addSecs(datetime.datetime.now(), secTillReminder)
 
+    #time till reminder
     print(timeToPrintReminder)
 
+    #how much time till reminder
+    #this is what I'll store with message
     print(timeToPrintReminder - datetime.datetime.now())
 
     timeTillPrint = timeToPrintReminder - datetime.datetime.now()
@@ -127,6 +130,7 @@ async def remindeMe(context):
     hours = int(math.floor(seconds / 3600))
     minutes = int(math.floor((seconds - (hours * 3600)) / 60))
 
+    #how many days, hr, and min till reminder
     print(timeTillPrint.days)
     print(hours)
     print(minutes)
