@@ -25,6 +25,8 @@ bot = commands.Bot(command_prefix='!')
 
 owm = pyowm.OWM(os.getenv('PYOWM_TOKEN'))
 
+reminderInfo = []
+
 reddit = praw.Reddit(client_id=os.getenv('CLIENT_ID'),
                       client_secret=os.getenv('CLIENT_SECRET'),
                       grant_type='client_credentials',
@@ -50,14 +52,26 @@ async def on_message(message):
 
     await bot.process_commands(message)
 #jarvis
-#async def my_background_task():
-   # await bot.wait_until_ready()
-    #channel = bot.get_channel(602605656704417999)
-    #waitTime = random.randint(1, 10000)
-    #while not bot.is_closed():
-        #print('```' + spooky_ascii_art() + '```')
-     #   await channel.send('```' + spooky_ascii_art() + '```')
-      #  await asyncio.sleep(86400 + waitTime)
+async def my_background_task():
+    await bot.wait_until_ready()
+    channel = bot.get_channel(602605656704417999)
+    waitTime = 300
+    n = ["", "", "", "", "", "", "", ""]
+    while not bot.is_closed():
+        for info in reminderInfo:
+            timeTillPrint = info[0]
+            seconds = timeTillPrint.seconds
+            hours = int(math.floor(seconds / 3600))
+            minutes = int(math.floor((seconds - (hours * 3600)) / 60))
+
+            if timeTillPrint.days == 0:
+                if hours == 0:
+                    if minutes <= 5:
+                        ran = random.randint(0, len(n) - 1)
+                        msg = "HEY " + n[ran] + " " + info[2] + " here is your reminder: " + info[1] + " your welcome. " 
+                        await channel.send(msg)
+
+        await asyncio.sleep(waitTime)
 
 @bot.command(name='hello', help='Jarvis says hello.')
 async def hello(context):
@@ -113,17 +127,19 @@ async def remindeMe(context):
     else:
         secTillReminder = int(timeTillReminder) * 60
 
-    print(secTillReminder)
+    #print(secTillReminder)
 
 
     timeToPrintReminder = addSecs(datetime.datetime.now(), secTillReminder)
 
     #time till reminder
-    print(timeToPrintReminder)
+    #print(timeToPrintReminder)
 
     #how much time till reminder
     #this is what I'll store with message
-    print(timeToPrintReminder - datetime.datetime.now())
+    #print(timeToPrintReminder - datetime.datetime.now())
+
+    reminderInfo.append([timeToPrintReminder - datetime.datetime.now(), userReminder, context.author.mention])
 
     timeTillPrint = timeToPrintReminder - datetime.datetime.now()
     seconds = timeTillPrint.seconds
@@ -131,9 +147,11 @@ async def remindeMe(context):
     minutes = int(math.floor((seconds - (hours * 3600)) / 60))
 
     #how many days, hr, and min till reminder
-    print(timeTillPrint.days)
-    print(hours)
-    print(minutes)
+    #print(timeTillPrint.days)
+    #print(hours)
+    #print(minutes)
+
+    msg = "OK I will try to remind you to " + userReminder + " in about " + time + " " + unitOfTime + " give or take some time."
 
     await context.send(msg)
 
