@@ -97,7 +97,7 @@ def addSecs(date, secs):
     fulldate = fulldate + datetime.timedelta(seconds=secs)
     return fulldate
 
-@bot.command(name='remindeMe', help='')
+@bot.command(name='remindMe', help='')
 async def remindeMe(context):
 
     msg = context.message.content
@@ -114,10 +114,10 @@ async def remindeMe(context):
     time = msgInfo[1]
 
     # min or hr
-    unitOfTime = time.split(' ')[0]
+    unitOfTime = time.split(' ')[1]
 
     # amount of time (int)
-    timeTillReminder = time.split(' ')[1]
+    timeTillReminder = time.split(' ')[0]
 
     secTillReminder = 0
 
