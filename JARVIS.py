@@ -59,7 +59,7 @@ async def my_background_task():
     n = ["", "", "", "", "", "", "", ""]
     while not bot.is_closed():
         for info in reminderInfo:
-            timeTillPrint = info[0]
+            timeTillPrint = info[0] - datetime.datetime.now()
             seconds = timeTillPrint.seconds
             hours = int(math.floor(seconds / 3600))
             minutes = int(math.floor((seconds - (hours * 3600)) / 60))
@@ -139,7 +139,7 @@ async def remindeMe(context):
     #this is what I'll store with message
     #print(timeToPrintReminder - datetime.datetime.now())
 
-    reminderInfo.append([timeToPrintReminder - datetime.datetime.now(), userReminder, context.author.mention])
+    reminderInfo.append([timeToPrintReminder, userReminder, context.author.mention])
 
     timeTillPrint = timeToPrintReminder - datetime.datetime.now()
     seconds = timeTillPrint.seconds
@@ -216,7 +216,7 @@ async def redditPosts(context):
 
    # await context.send(random.choice(listOfJokes))
 
-#bot.loop.create_task(my_background_task())
+bot.loop.create_task(my_background_task())
 
 @bot.command(name="daystillxmas", help="days till xmas 2020")
 async def daystillxmas(context):
