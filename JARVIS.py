@@ -55,8 +55,9 @@ async def on_message(message):
 async def my_background_task():
     await bot.wait_until_ready()
     channel = bot.get_channel(602605656704417999)
-    waitTime = 300
-    n = ["", "", "", "", "", "", "", ""]
+    waitTime = 300 #check for updated every 5 minutes
+    n = ["", "", "", "", "", "", "", ""] #fill with whatever words you want to address user with :)
+
     while not bot.is_closed():
         for info in reminderInfo:
             timeTillPrint = info[0] - datetime.datetime.now()
@@ -64,6 +65,7 @@ async def my_background_task():
             hours = int(math.floor(seconds / 3600))
             minutes = int(math.floor((seconds - (hours * 3600)) / 60))
 
+            #if at time (+/- 5 min) then print reminder
             if timeTillPrint.days == 0:
                 if hours == 0:
                     if minutes <= 5:
@@ -101,6 +103,8 @@ def addSecs(date, secs):
 async def remindeMe(context):
 
     msg = context.message.content
+
+    #todo catch errors 
 
     #remove the prompt word
     msg = msg.split(' ', 1)[1]
