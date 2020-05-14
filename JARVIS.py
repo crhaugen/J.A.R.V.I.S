@@ -72,7 +72,8 @@ async def my_background_task():
                         ran = random.randint(0, len(n) - 1)
                         msg = "HEY " + n[ran] + " " + info[2] + " here is your reminder: " + info[1] + " your welcome. " 
                         await channel.send(msg)
-
+                        
+        #check if reminder needs to be send every 5 minutes
         await asyncio.sleep(waitTime)
 
 @bot.command(name='hello', help='Jarvis says hello.')
