@@ -72,7 +72,7 @@ async def my_background_task():
                         ran = random.randint(0, len(n) - 1)
                         msg = "HEY " + n[ran] + " " + info[2] + " here is your reminder: " + info[1] + " your welcome. " 
                         await channel.send(msg)
-                        
+
         #check if reminder needs to be send every 5 minutes
         await asyncio.sleep(waitTime)
 
@@ -132,29 +132,10 @@ async def remindeMe(context):
     else:
         secTillReminder = int(timeTillReminder) * 60
 
-    #print(secTillReminder)
-
 
     timeToPrintReminder = addSecs(datetime.datetime.now(), secTillReminder)
 
-    #time till reminder
-    #print(timeToPrintReminder)
-
-    #how much time till reminder
-    #this is what I'll store with message
-    #print(timeToPrintReminder - datetime.datetime.now())
-
     reminderInfo.append([timeToPrintReminder, userReminder, context.author.mention])
-
-    timeTillPrint = timeToPrintReminder - datetime.datetime.now()
-    seconds = timeTillPrint.seconds
-    hours = int(math.floor(seconds / 3600))
-    minutes = int(math.floor((seconds - (hours * 3600)) / 60))
-
-    #how many days, hr, and min till reminder
-    #print(timeTillPrint.days)
-    #print(hours)
-    #print(minutes)
 
     msg = "OK I will try to remind you to: " + userReminder + " in about " + time + " give or take some time."
 
