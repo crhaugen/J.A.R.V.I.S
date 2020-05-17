@@ -25,7 +25,7 @@ bot = commands.Bot(command_prefix='!')
 
 owm = pyowm.OWM(os.getenv('PYOWM_TOKEN'))
 
-reminderInfo = []
+reminderInfo = [] #store reminder message and when reminder needs to be sent out
 
 reddit = praw.Reddit(client_id=os.getenv('CLIENT_ID'),
                       client_secret=os.getenv('CLIENT_SECRET'),
