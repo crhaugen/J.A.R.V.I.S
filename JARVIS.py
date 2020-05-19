@@ -51,12 +51,12 @@ async def on_message(message):
         await message.channel.send(random.choice(jarvisQuotes))
 
     await bot.process_commands(message)
-#jarvis
+#jarvis background task always running 
 async def my_background_task():
     await bot.wait_until_ready()
     channel = bot.get_channel(602605656704417999)
     waitTime = 300 #check for updated every 5 minutes
-    n = ["", "", "", "", "", "", "", ""] #fill with whatever words you want to address user with :)
+    n = ["", "", "", "", "", "", "", ""] #fill with whatever words you want to address user with ;)
 
     while not bot.is_closed():
         for info in reminderInfo:
