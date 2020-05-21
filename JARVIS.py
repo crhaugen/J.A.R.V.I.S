@@ -65,7 +65,7 @@ async def my_background_task():
             hours = int(math.floor(seconds / 3600))
             minutes = int(math.floor((seconds - (hours * 3600)) / 60))
 
-            #if at time (+/- 5 min) then print reminder
+            # if at time (+/- 5 min) then print reminder
             if timeTillPrint.days == 0:
                 if hours == 0:
                     if minutes <= 5:
@@ -194,6 +194,7 @@ async def redditPosts(context):
 
     await context.send(mes)
 
+#funtion to run spooky jokes
 #@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
 #async def spookyJoke(context):
 
