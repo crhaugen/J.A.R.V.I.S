@@ -194,7 +194,7 @@ async def redditPosts(context):
 
     await context.send(mes)
 
-#funtion to run spooky jokes
+#funtion to run spooky jokes put in another file
 #@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
 #async def spookyJoke(context):
 
