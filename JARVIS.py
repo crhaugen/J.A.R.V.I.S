@@ -206,7 +206,7 @@ async def redditPosts(context):
 bot.loop.create_task(my_background_task())
 
 #print days till xmas
-#todo: make it so year rolls over to next xmas automatic 
+#todo: make it so year rolls over to next xmas automaticly
 @bot.command(name="daystillxmas", help="days till xmas 2020")
 async def daystillxmas(context):
     christmas = datetime.datetime.strptime("12/25/2020", "%m/%d/%Y")
