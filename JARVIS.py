@@ -173,6 +173,7 @@ async def upsidedownWords(context):
 
     await context.send(newMsg)
 
+#grabs top pages on reddit
 @bot.command(name="reddit", help="gets top posts from given subreddit: !reddit <subReddit>")
 async def redditPosts(context):
     msg = context.message.content
@@ -206,7 +207,7 @@ async def redditPosts(context):
 bot.loop.create_task(my_background_task())
 
 #print days till xmas
-#todo: make it so year rolls over to next xmas automaticly
+#todo: make it so year rolls over to the new xmas automaticly
 @bot.command(name="daystillxmas", help="days till xmas 2020")
 async def daystillxmas(context):
     christmas = datetime.datetime.strptime("12/25/2020", "%m/%d/%Y")
