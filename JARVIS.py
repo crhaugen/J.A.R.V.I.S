@@ -173,7 +173,7 @@ async def upsidedownWords(context):
 
     await context.send(newMsg)
 
-#grabs top pages on reddit from given subreddit
+#grabs top pages on reddit from any given subreddit
 @bot.command(name="reddit", help="gets top posts from given subreddit: !reddit <subReddit>")
 async def redditPosts(context):
     msg = context.message.content
