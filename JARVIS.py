@@ -141,7 +141,7 @@ async def remindeMe(context):
 
     await context.send(msg)
 
-#helper function to get weather info at coords
+#helper function to get weather info at coords (granite falls)
 def getWeatherData():
     observation = owm.weather_at_coords(48.082778, -121.969722)
     return observation.get_weather()
