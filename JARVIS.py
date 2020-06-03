@@ -17,6 +17,8 @@ from discord.ext import commands
 from dotenv import load_dotenv
 from spookyASCII import spooky_ascii_art
 
+
+#this is access able on the .env
 load_dotenv()
 
 token = os.getenv('DISCORD_TOKEN')
@@ -51,7 +53,7 @@ async def on_message(message):
         await message.channel.send(random.choice(jarvisQuotes))
 
     await bot.process_commands(message)
-    
+
 #jarvis background task always running will run with the remindMe Function
 async def my_background_task():
     await bot.wait_until_ready()
