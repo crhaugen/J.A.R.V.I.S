@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 from spookyASCII import spooky_ascii_art
 
 
-#this is access able on the .env
+#this is access able on the .env (on computer running jarvis program)
 load_dotenv()
 
 token = os.getenv('DISCORD_TOKEN')
