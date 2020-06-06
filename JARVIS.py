@@ -46,6 +46,7 @@ async def on_ready():
 @bot.event
 async def on_message(message):
 
+    #jarvis says a random quotes if you speak it's names
     if 'jarvis' in message.content.lower():
 
         with open('quotes.json', 'r') as quotes:
