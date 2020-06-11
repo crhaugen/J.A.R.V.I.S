@@ -29,7 +29,7 @@ owm = pyowm.OWM(os.getenv('PYOWM_TOKEN'))
 
 reminderInfo = [] #store reminder message and when reminder needs to be sent out
 
-#info from reddit bot (api) I'm using (reddit devloper account)
+#info from reddit bot (api) I'm using (reddit developer account)
 reddit = praw.Reddit(client_id=os.getenv('CLIENT_ID'),
                       client_secret=os.getenv('CLIENT_SECRET'),
                       grant_type='client_credentials',
