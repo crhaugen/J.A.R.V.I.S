@@ -152,7 +152,7 @@ def getWeatherData():
     observation = owm.weather_at_coords(48.082778, -121.969722)
     return observation.get_weather()
 
-#Get weather @ 
+#Get weather @ set locations
 @bot.command(name='weather', help='Gives current weather')
 async def weather(context):
     msg = 'Weather Status: {}'.format(getWeatherData().get_detailed_status())
