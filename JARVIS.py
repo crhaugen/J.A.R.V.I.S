@@ -81,6 +81,8 @@ async def my_background_task():
         #check if reminder needs to be send every 5 minutes
         await asyncio.sleep(waitTime)
 
+
+# simple example that prints out hello
 @bot.command(name='hello', help='Jarvis says hello.')
 async def hello(context):
 
