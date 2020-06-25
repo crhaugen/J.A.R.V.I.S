@@ -161,7 +161,7 @@ async def weather(context):
     msg = 'Weather Status: {}'.format(getWeatherData().get_detailed_status())
     await context.send(msg)
 
-# print current temp @ set lcoations
+# print current temp @ set locations 
 @bot.command(name='temp', help='Gives current temp')
 async def temp(context):
     msg = 'Current Temperature: {} F'.format(getWeatherData().get_temperature('fahrenheit')['temp'])
