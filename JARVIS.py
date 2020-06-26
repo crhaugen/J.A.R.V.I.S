@@ -167,6 +167,7 @@ async def temp(context):
     msg = 'Current Temperature: {} F'.format(getWeatherData().get_temperature('fahrenheit')['temp'])
     await context.send(msg)
 
+# repeats users message with emoji between values
 @bot.command(name="clap", help="Inserts some value into give string.")
 async def clap(context):
     msg = context.message.content
