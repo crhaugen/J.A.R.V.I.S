@@ -36,7 +36,7 @@ reddit = praw.Reddit(client_id=os.getenv('CLIENT_ID'),
                       user_agent='mytestscript/1.0')
 
 
-# runs
+# bot info runs on start
 @bot.event
 async def on_ready():
     print('Logged in as')
