@@ -108,7 +108,7 @@ def addSecs(date, secs):
     fulldate = fulldate + datetime.timedelta(seconds=secs)
     return fulldate
 
-# reminds the user of some given text
+# reminds the user of something
 @bot.command(name='remindMe', help='')
 async def remindeMe(context):
 
