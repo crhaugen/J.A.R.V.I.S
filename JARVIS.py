@@ -177,6 +177,7 @@ async def clap(context):
 
     await context.send(newMsg)
 
+# turns given texts upsidedown (using api)
 @bot.command(name="upsidedown", help="turns text upsidedown")
 async def upsidedownWords(context):
     msg = context.message.content
