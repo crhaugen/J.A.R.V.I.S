@@ -219,7 +219,7 @@ async def redditPosts(context):
 
 bot.loop.create_task(my_background_task())
 
-#print days till xmas
+#print days, hours, min till xmas
 #todo: make it so year rolls over to the new xmas automaticly
 @bot.command(name="daystillxmas", help="days till xmas 2020")
 async def daystillxmas(context):
