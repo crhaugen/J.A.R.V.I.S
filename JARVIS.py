@@ -208,6 +208,7 @@ async def redditPosts(context):
 
     await context.send(mes)
 
+#todo move hoilday stuff to new file
 #funtion to run spooky jokes put in another file
 #@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
 #async def spookyJoke(context):
