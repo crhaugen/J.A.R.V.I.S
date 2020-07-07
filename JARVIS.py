@@ -198,6 +198,7 @@ async def redditPosts(context):
 
     mes = 'Fetching posts from front page of ' + subType + ':\n\n'
 
+    #graps link (not .self)
     for sub in subs:
         res = requests.get(sub.url)
         print(res.status_code)
