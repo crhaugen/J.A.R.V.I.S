@@ -244,4 +244,5 @@ async def daystillxmas(context):
     output = "There are " + str(days) + " Days, " + strHours + " Hours, and " + strMinutes + " Minutes till xmas."
     await context.send(output)
 
+#runs bot
 bot.run(token)
