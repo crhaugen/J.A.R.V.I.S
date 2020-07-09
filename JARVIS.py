@@ -87,6 +87,7 @@ async def my_background_task():
 @bot.command(name='hello', help='Jarvis says hello.')
 async def hello(context):
 
+    # my user
     if context.author.id == 445619407520268298:
         msg = 'Hello Master ' + context.author.mention
 
