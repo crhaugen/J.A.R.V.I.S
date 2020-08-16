@@ -62,7 +62,7 @@ async def my_background_task():
     await bot.wait_until_ready()
     channel = bot.get_channel(602605656704417999)
     waitTime = 300 #check for updated every 5 minutes
-    n = ["", "", "", "", "", "", "", ""] #fill with whatever words you want to address user with ;)
+    n = ["", "", "", "", "", "", "", ""] #fill with whatever words you want to address user with
 
     while not bot.is_closed():
         for info in reminderInfo:
@@ -150,6 +150,10 @@ async def remindeMe(context):
     msg = "OK I will try to remind you to: " + userReminder + " in about " + time + " give or take some time."
 
     await context.send(msg)
+
+@bot.command(name='goldstar', help='Gives user a gold star')
+async def goldstar(context):
+    #how to give another user the star? (give username and map that to id?)
 
 #helper function to get weather info at coords (add input options)
 def getWeatherData():
