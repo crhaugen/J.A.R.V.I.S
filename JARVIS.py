@@ -154,6 +154,7 @@ async def remindeMe(context):
 @bot.command(name='goldstar', help='Gives user a gold star')
 async def goldstar(context):
     #how to give another user the star? (give username and map that to id?)
+    #Gobal list of user and their star count, when called jarvis rewards the star and shows list of counts for all user
 
 #helper function to get weather info at coords (add input options)
 def getWeatherData():
