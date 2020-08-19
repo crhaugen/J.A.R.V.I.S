@@ -156,6 +156,10 @@ async def goldstar(context):
     #how to give another user the star? (give username and map that to id?)
     #Gobal list of user and their star count, when called jarvis rewards 
 
+    msg = context.message.content
+
+
+
 #helper function to get weather info at coords (add input options)
 def getWeatherData():
     observation = owm.weather_at_coords(48.082778, -121.969722)
