@@ -157,6 +157,15 @@ async def goldstar(context):
     #Gobal list of user and their star count, when called jarvis rewards 
 
     msg = context.message.content
+    #message: !goldstar >>@username
+    #remove the prompt word
+
+    msg = msg.split(' ', 1)[1]
+
+    # seperate the time from the messsage
+    msgInfo = msg.split('>>')
+
+
 
 
 
