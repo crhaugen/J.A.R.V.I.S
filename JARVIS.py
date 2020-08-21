@@ -165,6 +165,9 @@ async def goldstar(context):
     # seperate the time from the messsage
     msgInfo = msg.split('>>')
 
+    username = magInfo[0]
+    
+
 
 
 
