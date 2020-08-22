@@ -151,6 +151,8 @@ async def remindeMe(context):
 
     await context.send(msg)
 
+goldStarTable = {}
+
 @bot.command(name='goldstar', help='Gives user a gold star')
 async def goldstar(context):
     #how to give another user the star? (give username and map that to id?)
@@ -166,7 +168,7 @@ async def goldstar(context):
     msgInfo = msg.split('>>')
 
     username = magInfo[0]
-    
+
 
 
 
