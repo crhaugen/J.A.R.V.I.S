@@ -28,7 +28,9 @@ bot = commands.Bot(command_prefix='!')
 owm = pyowm.OWM(os.getenv('PYOWM_TOKEN'))
 
 reminderInfo = [] #store reminder message and when reminder needs to be sent out
-userStars = {}
+
+
+
 
 #info from reddit bot (api) I'm using (reddit developer account)
 reddit = praw.Reddit(client_id=os.getenv('CLIENT_ID'),
@@ -171,7 +173,7 @@ async def goldstar(context):
     username = magInfo[0]
 
     if username in userStars:
-        userStars[username] += 1
+        goldStarTable[username] += 1
 
 
 
