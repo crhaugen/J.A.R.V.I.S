@@ -175,6 +175,9 @@ async def goldstar(context):
     if username in userStars:
         goldStarTable[username] += 1
 
+    else:
+        goldStarTable[username] = 1
+
 
 
 
