@@ -177,7 +177,7 @@ async def goldstar(context):
     else:
         goldStarTable[username] = 1
 
-        
+    #find gif to output 
 
 
 
