@@ -178,6 +178,7 @@ async def goldstar(context):
         goldStarTable[username] = 1
 
     #find gif to output 
+    #print out current count
 
 
 
