@@ -179,7 +179,7 @@ async def goldstar(context):
 
     #find gif to output 
     #how can bot output gif?
-    #print out current count
+    #print out current star count
 
 
 
