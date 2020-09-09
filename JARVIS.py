@@ -180,7 +180,7 @@ async def goldstar(context):
     #find gif to output 
     #how can bot output gif?
     #print out current star count
-    #have bot @user 
+    #have bot @user with updated star count
 
 
 
