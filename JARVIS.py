@@ -182,7 +182,7 @@ async def goldstar(context):
     #print out current star count
     #have bot @user with updated star count
 
-    
+    #can bot output gif and display counts with another invoke
 
 
 
