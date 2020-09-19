@@ -58,6 +58,11 @@ async def on_message(message):
 
         await message.channel.send(random.choice(jarvisQuotes))
 
+    elif 'noice' in message.content.lower():
+
+        noiceGIF = 'https://tenor.com/view/brooklyn99-noice-jake-peralta-andy-samberg-nice-gif-14234819'
+        await message.channel.send(noiceGIF)
+
     await bot.process_commands(message)
 
 #jarvis background task always running will run with the remindMe Function
@@ -153,38 +158,6 @@ async def remindeMe(context):
     msg = "OK I will try to remind you to: " + userReminder + " in about " + time + " give or take some time."
 
     await context.send(msg)
-
-goldStarTable = {}
-
-@bot.command(name='goldstar', help='Gives user a gold star')
-async def goldstar(context):
-    #how to give another user the star? (give username and map that to id?)
-    #Gobal list of user and their star count, when called jarvis rewards 
-
-    msg = context.message.content
-    #message: !goldstar >>@username
-    #remove the prompt word
-
-    msg = msg.split(' ', 1)[1]
-
-    # seperate the time from the messsage
-    msgInfo = msg.split('>>')
-
-    username = magInfo[0]
-
-    if username in userStars:
-        goldStarTable[username] += 1
-    else:
-        goldStarTable[username] = 1
-
-    #find gif to output 
-    #how can bot output gif?
-    #print out current star count
-
-
-
-
-
 
 
 #helper function to get weather info at coords (add input options)
