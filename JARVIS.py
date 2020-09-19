@@ -177,7 +177,9 @@ async def goldstar(context):
     else:
         goldStarTable[username] = 1
 
-  
+    #find gif to output 
+    #how can bot output gif?
+    #print out current star count
 
 
 
