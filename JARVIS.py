@@ -224,10 +224,10 @@ async def redditPosts(context):
 #@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
 #async def spookyJoke(context):
 
- #   with open('spookyJokes.json', 'r') as joke:
- #       listOfJokes = json.load(joke)
+    with open('spookyJokes.json', 'r') as joke:
+        listOfJokes = json.load(joke)
 
-   # await context.send(random.choice(listOfJokes))
+   await context.send(random.choice(listOfJokes))
 
 bot.loop.create_task(my_background_task())
 
