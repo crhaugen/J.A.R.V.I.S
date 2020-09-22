@@ -221,8 +221,8 @@ async def redditPosts(context):
 
 #todo move hoilday stuff to new file
 #funtion to run spooky jokes put in another file
-#@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
-#async def spookyJoke(context):
+@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
+async def spookyJoke(context):
 
     with open('spookyJokes.json', 'r') as joke:
         listOfJokes = json.load(joke)
