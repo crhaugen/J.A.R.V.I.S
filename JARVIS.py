@@ -58,7 +58,7 @@ async def on_message(message):
 
         await message.channel.send(random.choice(jarvisQuotes))
 
-    elif 'noice' in message.content.lower():
+    elif 'noice' in message.content.lower(): #need to add statement to stop bot from responing to self
 
         noiceGIF = 'https://tenor.com/view/brooklyn99-noice-jake-peralta-andy-samberg-nice-gif-14234819'
         await message.channel.send(noiceGIF)
