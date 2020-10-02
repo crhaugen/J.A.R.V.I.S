@@ -63,6 +63,10 @@ async def on_message(message):
         noiceGIF = 'https://tenor.com/view/brooklyn99-noice-jake-peralta-andy-samberg-nice-gif-14234819'
         await message.channel.send(noiceGIF)
 
+    elif 'what' in message.content.lower() and not message.author.bot:
+        whaaatGIF = 'https://gph.is/g/a9Y71PB'
+        await message.channel.send(whaaatGIF)
+
     await bot.process_commands(message)
 
 #jarvis background task always running will run with the remindMe Function
