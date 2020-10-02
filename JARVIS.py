@@ -58,14 +58,10 @@ async def on_message(message):
 
         await message.channel.send(random.choice(jarvisQuotes))
 
-    elif 'noice' in message.content.lower(): #need to add statement to stop bot from responing to self
+    elif 'noice' in message.content.lower() and not message.author.bot:
 
         noiceGIF = 'https://tenor.com/view/brooklyn99-noice-jake-peralta-andy-samberg-nice-gif-14234819'
         await message.channel.send(noiceGIF)
-
-    elif 'good bot' in message.content.lower(): #need to add statement to stop bot from responing to self
-        msg = ":)"
-        await message.channel.send(msg)
 
     await bot.process_commands(message)
 
@@ -74,7 +70,7 @@ async def my_background_task():
     await bot.wait_until_ready()
     channel = bot.get_channel(602605656704417999)
     waitTime = 300 #check for updated every 5 minutes
-    n = ["", "", "", "", "", "", "", ""] #fill with whatever words you want to address user with
+    n = ["ass", "asshole", "assbutt", "idiot", "dummy", "jackass"] #fill with whatever words you want to address user with
 
     while not bot.is_closed():
         for info in reminderInfo:
@@ -93,7 +89,6 @@ async def my_background_task():
 
         #check if reminder needs to be send every 5 minutes
         await asyncio.sleep(waitTime)
-
 
 # simple example that prints out hello
 @bot.command(name='hello', help='Jarvis says hello.')
@@ -120,6 +115,7 @@ def addSecs(date, secs):
     fulldate = datetime.datetime(year, month, day, tm.hour, tm.minute, tm.second)
     fulldate = fulldate + datetime.timedelta(seconds=secs)
     return fulldate
+
 
 # reminds the user of something and given time.
 @bot.command(name='remindMe', help='')
@@ -225,13 +221,13 @@ async def redditPosts(context):
 
 #todo move hoilday stuff to new file
 #funtion to run spooky jokes put in another file
-@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
-async def spookyJoke(context):
+#@bot.command(name="spookyjoke", help="jarvis will tell you a spooky joke")
+#async def spookyJoke(context):
 
-    with open('spookyJokes.json', 'r') as joke:
-        listOfJokes = json.load(joke)
+ #   with open('spookyJokes.json', 'r') as joke:
+ #       listOfJokes = json.load(joke)
 
-   await context.send(random.choice(listOfJokes))
+   # await context.send(random.choice(listOfJokes))
 
 bot.loop.create_task(my_background_task())
 
