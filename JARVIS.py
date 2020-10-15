@@ -58,8 +58,8 @@ async def on_message(message):
 
         await message.channel.send(random.choice(jarvisQuotes))
 
-    elif ('noice' or 'nice') in message.content.lower() and not message.author.bot:
-        noiceGIF = 'https://tenor.com/view/brooklyn99-noice-jake-peralta-andy-samberg-nice-gif-14234819'
+    elif ['noice' or 'nice'] in message.content.lower() and not message.author.bot:
+        noiceGIF = 'https://tenor.com/view/cool-right-okay-no-doubt-true-gif-11848506'
         await message.channel.send(noiceGIF)
 
     elif 'what' in message.content.lower() and not message.author.bot:
@@ -69,6 +69,10 @@ async def on_message(message):
     elif 'cool' in message.content.lower() and not message.author.bot:
         coolGIF = 'https://tenor.com/view/cool-no-doubt-brooklyn-nine-nine-b99-andy-samberg-gif-17846849'
         await message.channel.send(coolGIF)
+
+    elif 'dope' in message.content.lower() and not message.author.bot:
+        dope = 'https://tenor.com/view/done-cool-jerk-fool-stephanie-beatriz-gif-13252179'
+        await message.channel.send(dope)
 
     await bot.process_commands(message)
 
