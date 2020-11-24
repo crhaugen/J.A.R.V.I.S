@@ -57,7 +57,8 @@ async def on_message(message):
             jarvisQuotes = json.load(quotes)
 
         await message.channel.send(random.choice(jarvisQuotes))
-
+        
+    # gifs outputed depending on prompt word
     elif 'noice' in message.content.lower() and not message.author.bot:
         noiceGIF = 'https://tenor.com/view/brooklyn99-noice-jake-peralta-andy-samberg-nice-gif-14234819'
         await message.channel.send(noiceGIF)
